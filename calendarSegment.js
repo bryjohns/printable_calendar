@@ -39,20 +39,26 @@ class CalendarSegment {
     }
 
     loadDays() {
-        this.daysLoaded = [];
+        this.displayDays = [];
 
         let daysDiff = this.getDaysDiff();
         
         for (let i = 0; i <= daysDiff; i++) {
             let dateTimeForDay = new Date(this.startDate.getTime() + ((1000 * 3600 * 24) * i))
             let newDay = new Day(dateTimeForDay);
-            if (!this.daysLoaded.some(d => d.id === newDay.id))
+
+            let existingDay = this.daysLoaded.find(d => d.id === newDay.id);
+            if (existingDay) {
+                this.displayDays.push(existingDay);
+            }
+            else {
                 this.daysLoaded.push(newDay);
+                this.displayDays.push(newDay);
+            }
         }
 
         // todo: actual sort
         this.daysLoaded.sort();
-        this.displayDays = this.daysLoaded;
     }
 
     setDayActivities(id, activities) {

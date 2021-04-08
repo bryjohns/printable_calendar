@@ -79,5 +79,7 @@ class CalendarDisplay {
             return '<span class="b">' + activity.substring(6) + '</span>';
         if (activity.startsWith('[green]'))
             return '<span class="g">' + activity.substring(7) + '</span>';
+
+        return activity;
     }
 }

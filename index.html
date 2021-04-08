@@ -23,6 +23,9 @@
                 <label for="startDate">End Date</label>
                 <input type="date" name="endDate" id="endDate" />
             </form>
+            <div>
+                <button type="button" id="deleteCalendar">Delete Calendar</button>
+            </div>
         </div>
         <div id="instructions">
             <ul>
@@ -46,27 +49,42 @@
                 }
             }
 
+            let lastWork = getLastWork();
+            let calendarSegment = lastWork || new CalendarSegment();
 
-            let calendarSegment = new CalendarSegment();
             let renderer = new CalendarDisplay(calendarSegment);
+
+            if (lastWork) {
+                setInputDate(document.querySelector('#startDate'), calendarSegment.startDate);
+                setInputDate(document.querySelector('#endDate'), calendarSegment.endDate);
+                render();
+            }
+
+
             document.querySelector('#startDate').addEventListener('change', (event) => {
                 calendarSegment.startDate = event.target.value;
 
-                let ed = calendarSegment.endDate;
-                let edString = ed.getFullYear().toString() + '-' + (ed.getMonth() + 1).toString().padStart(2, 0) + '-' + ed.getDate().toString().padStart(2, 0);
-                document.querySelector('#endDate').value = edString;
+                // set corrected end date
+                setInputDate(document.querySelector('#endDate'), calendarSegment.endDate);
+
+                saveWork();
 
                 render();
             });
             document.querySelector('#endDate').addEventListener('change', (event) => {
                 calendarSegment.endDate = event.target.value;
 
-                let sd = calendarSegment.endDate;
-                let sdString = sd.getFullYear().toString() + '-' + (sd.getMonth() + 1).toString().padStart(2, 0) + '-' + sd.getDate().toString().padStart(2, 0);
-                document.querySelector('#endDate').value = sdString;
+                // set corrected start date
+                setInputDate(document.querySelector('#startDate'), calendarSegment.endDate);
+
+                saveWork();
 
                 render();
             });
+            document.querySelector('#deleteCalendar').addEventListener('click', (event) => {
+                clearWork();
+            });
+
             on('body', 'click', '.day', event => {
                 let dayElement = event.target;
                 let id = dayElement.id;
@@ -79,6 +97,7 @@
                 let dayActivities = day.querySelector('textarea').value;
 
                 calendarSegment.setDayActivities(id, dayActivities);
+                saveWork();
 
                 day.outerHTML = renderer.getDayHtmlById(id);
             });
@@ -87,6 +106,60 @@
                 document.querySelector('#calendar-rendering').innerHTML = renderer.getHtml();
             }
 
+            function getLastWork() {
+                var storedJson = localStorage.getItem('calendarSegment');
+
+                if (!storedJson)
+                    return;
+
+                
+                let lastCalendarSegment = null;
+                try {
+                    let lastCalendarSegmentData = JSON.parse(storedJson);
+                    if (lastCalendarSegmentData) {
+                        lastCalendarSegment = new CalendarSegment();
+                        lastCalendarSegment.daysLoaded = lastCalendarSegmentData.daysLoaded.map(dl => Day.copy(dl));
+
+                        // TODO: this is temporary
+                        lastCalendarSegment.displayDays = lastCalendarSegment.daysLoaded;
+                        lastCalendarSegment.startDate = dateToInputString(new Date(lastCalendarSegmentData.__startDate));
+                        lastCalendarSegment.endDate = dateToInputString(new Date(lastCalendarSegmentData.__endDate));
+                    }
+                } catch (error) {
+                    return null;
+                }
+
+                return lastCalendarSegment;
+            }
+
+            function saveWork() {
+                calendarSegment.__startDate = calendarSegment.startDate ? calendarSegment.startDate.getTime() : null;
+                calendarSegment.__endDate = calendarSegment.endDate ? calendarSegment.endDate.getTime() : null;
+                var stateJson = JSON.stringify(calendarSegment);
+
+                delete calendarSegment.__startDate;
+                delete calendarSegment.__endDate;
+
+                localStorage.setItem('calendarSegment', stateJson);
+            }
+
+            function clearWork() {
+                localStorage.removeItem('calendarSegment');
+                calendarSegment = new CalendarSegment();
+                document.querySelector('#calendar-rendering').innerHTML = '';
+            }
+
+            function setInputDate(element, date) {
+                if (!date)
+                    return '';
+
+                let dString = dateToInputString(date);
+                element.value = dString;
+            }
+
+            function dateToInputString(date) {
+                return date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) + '-' + date.getDate().toString().padStart(2, 0);
+            }
         </script>
     </body>
 </html>

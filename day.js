@@ -9,6 +9,13 @@ class Day {
         this.id = date.getTime();
     }
 
+    static copy(day) {
+        let nd = new Day(new Date(day.date));
+        nd.activities = day.activities;
+
+        return nd;
+    }
+
 
     
     // addEditRemoveActivity(something, position) {
