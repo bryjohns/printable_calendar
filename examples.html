@@ -1,0 +1,1205 @@
+<html>
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <style>
+            div { box-sizing: border-box; }
+            .calendar-segment-wrapper {
+                width: 11in;
+                height: 8.5in;
+                border: solid 2px red;
+                padding: 1in;
+                box-sizing: border-box;
+            }
+            .calendar-segment {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+            .calendar-segment.col-count-1 .day {
+                width: 8.9in;
+            }
+            .calendar-segment.col-count-2 .day {
+                width: 4.45in;
+            }
+            .calendar-segment.col-count-3 .day {
+                width: 2.96in;
+            }
+            .calendar-segment.col-count-4 .day {
+                width: 2.225in;
+            }
+            .calendar-segment.col-count-5 .day {
+                width: 1.78in;
+            }
+            .calendar-segment.col-count-6 .day {
+                width: 1.483in;
+            }
+            .calendar-segment.col-count-7 .day {
+                width: 1.277in;
+            }
+            .calendar-segment.row-count-1 .day {
+                height: 5.8in;
+            }
+            .calendar-segment.row-count-2 .day {
+                height: 2.9in;
+            }
+            .calendar-segment.row-count-3 .day {
+                height: 1.93in;
+            }
+            .calendar-segment.row-count-4 .day {
+                height: 1.45in;
+            }
+            .calendar-segment.row-count-5 .day {
+                height: 1.16in;
+            }
+            .calendar-segment .day:nth-child(n+8) {
+                border-top: 0;
+            }
+            .calendar-segment .day:nth-child(7n + 1) {
+                border-left: solid 2px black;
+            }
+            .day { 
+                border: solid 2px black; 
+                border-left: none;
+                padding: 5px;
+                display: inline-block;
+                position: relative;
+            }
+            .day:first-child {
+                border-left: solid 2px black;
+            }
+            .date {
+                font-weight: bold;
+                font-size: 18px;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .add-control {
+                font-size: 30px;
+                font-weight: bold;
+                position: absolute;
+                bottom: 3px;
+                right: 3px;
+                height: 30px;
+                color: green;
+            }
+            ul.activities {
+                margin: 20px 0 0 0;
+                padding: 0;
+            }
+            .activities li {
+                font-size: 14px;
+                list-style: none;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-1 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-2 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-3 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-4 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-5 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-6 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-7 row-count-1">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-7 row-count-2">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">8</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">9</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">10</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">11</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">12</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-7 row-count-3">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">9</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">21</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-7 row-count-4">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+        <div class="calendar-segment-wrapper">
+            <div class="calendar-segment col-count-7 row-count-5">
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">5</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">6</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">7</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">1</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">2</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">3</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+                <div class="day">
+                    <div class="date">4</div>
+                    <ul class="activities">
+                        <li>Something to do this day ok I see</li>
+                        <li>Something to do this day ok I see</li>
+                    </ul>
+                    <div class="add-control">+</div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

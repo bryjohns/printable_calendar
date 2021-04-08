@@ -1,0 +1,133 @@
+@media print {
+    @page { 
+        size: landscape; 
+        margin: 0;
+    }
+    html, body {
+        width: 297mm;
+        height: 210mm;
+    }
+    #date-selection { display: none; }
+    #instructions { display: none; }
+    .calendar-segment-wrapper {
+        size: unset;
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 0;
+    }
+}
+
+div { box-sizing: border-box; }
+.calendar-segment-wrapper {
+    size: a4;
+    padding: 1in;
+    border: solid 2px red;
+    box-sizing: border-box;
+}
+.calendar-segment {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.calendar-segment.col-count-1 .day {
+    width: 100%;
+}
+.calendar-segment.col-count-2 .day {
+    width: 50%;
+}
+.calendar-segment.col-count-3 .day {
+    width: 33.33%;
+}
+.calendar-segment.col-count-4 .day {
+    width: 25%;
+}
+.calendar-segment.col-count-5 .day {
+    width: 20%;
+}
+.calendar-segment.col-count-6 .day {
+    width: 16.66%;
+}
+.calendar-segment.col-count-7 .day {
+    width: 14.28%;
+}
+.calendar-segment.row-count-1 .day {
+    height: 100%;
+}
+.calendar-segment.row-count-2 .day {
+    height: 50%;
+}
+.calendar-segment.row-count-3 .day {
+    height: 33.33%;
+}
+.calendar-segment.row-count-4 .day {
+    height: 25%;
+}
+.calendar-segment.row-count-5 .day {
+    height: 16.66;
+}
+.calendar-segment .day:nth-child(n+8) {
+    border-top: 0;
+}
+.calendar-segment .day:nth-child(7n + 1) {
+    border-left: solid 2px black;
+}
+.day { 
+    border: solid 2px black; 
+    border-left: none;
+    padding: 5px;
+    display: inline-block;
+    position: relative;
+}
+.day:first-child {
+    border-left: solid 2px black;
+}
+.date {
+    font-weight: bold;
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.add-control {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    height: 30px;
+    color: green;
+}
+ul.activities {
+    margin: 20px 0 0 0;
+    padding: 0;
+}
+.activities li {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.day {
+    cursor: pointer;
+}
+
+.day textarea {
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.r {
+    color: red;
+}
+.b {
+    color: blue;
+}
+.g { 
+    color: green; 
+}

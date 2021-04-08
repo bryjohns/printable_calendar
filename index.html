@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" id="contact-form-7-css" href="styles.css" type="text/css" media="all">
+        <script src="day.js"></script>
+        <script src="calendarSegment.js"></script>
+        <script src="calendarDisplay.js"></script>
+    </head>
+    <body>
+        <div id="date-selection">
+            <form>
+                <label for="startDate">Start Date</label>
+                <input type="date" name="startDate" id="startDate" />
+                <label for="startDate">End Date</label>
+                <input type="date" name="endDate" id="endDate" />
+            </form>
+        </div>
+        <div id="instructions">
+            <ul>
+                <li>If you want something bold wrap it like **<b>this</b>**</li>
+                <li>If you want something red, green, blue start the line with [red], [green] or [blue]</li>
+            </ul>
+        </div>
+        <div id="calendar-rendering">
+        </div>
+
+        <script>
+            // copy of someones VanillaJS version of jQuery.on
+            const on = (selector, eventType, childSelector, eventHandler) => {
+                const elements = document.querySelectorAll(selector)
+                    for (element of elements) {
+                        element.addEventListener(eventType, eventOnElement => {
+                        if (eventOnElement.target.matches(childSelector)) {
+                            eventHandler(eventOnElement)
+                        }
+                    })
+                }
+            }
+
+
+            let calendarSegment = new CalendarSegment();
+            let renderer = new CalendarDisplay(calendarSegment);
+            document.querySelector('#startDate').addEventListener('change', (event) => {
+                calendarSegment.startDate = event.target.value;
+
+                let ed = calendarSegment.endDate;
+                let edString = ed.getFullYear().toString() + '-' + (ed.getMonth() + 1).toString().padStart(2, 0) + '-' + ed.getDate().toString().padStart(2, 0);
+                document.querySelector('#endDate').value = edString;
+
+                render();
+            });
+            document.querySelector('#endDate').addEventListener('change', (event) => {
+                calendarSegment.endDate = event.target.value;
+
+                let sd = calendarSegment.endDate;
+                let sdString = sd.getFullYear().toString() + '-' + (sd.getMonth() + 1).toString().padStart(2, 0) + '-' + sd.getDate().toString().padStart(2, 0);
+                document.querySelector('#endDate').value = sdString;
+
+                render();
+            });
+            on('body', 'click', '.day', event => {
+                let dayElement = event.target;
+                let id = dayElement.id;
+                dayElement.innerHTML = renderer.getDayEditHtml(id);
+            });
+            on('body', 'click', '.day button', event => {
+                let button = event.target;
+                let day = button.closest('.day');
+                let id = day.id;
+                let dayActivities = day.querySelector('textarea').value;
+
+                calendarSegment.setDayActivities(id, dayActivities);
+
+                day.outerHTML = renderer.getDayHtmlById(id);
+            });
+
+            function render() {
+                document.querySelector('#calendar-rendering').innerHTML = renderer.getHtml();
+            }
+
+        </script>
+    </body>
+</html>
