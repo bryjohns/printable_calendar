@@ -45,10 +45,13 @@ class CalendarDisplay {
         let date = day.date.getDate();
         let activitiesHtml = this.getActivitiesHtml(day);
         let id = day.id;
+
+        let removeControl = activitiesHtml ? '<div class="remove-control">&mdash;</div>' : '';
         return `        
             <div class="day" id="${id}">
                 <div class="date">${date}</div>
                 ${activitiesHtml}
+                ${removeControl}
             </div>
         `;
 

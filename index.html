@@ -101,6 +101,16 @@
 
                 day.outerHTML = renderer.getDayHtmlById(id);
             });
+            on('body', 'click', '.day .remove-control', event => {
+                let button = event.target;
+                let day = button.closest('.day');
+                let id = day.id;
+                calendarSegment.setDayActivities(id, '');
+                saveWork();
+
+                day.outerHTML = renderer.getDayHtmlById(id);
+            });
+
 
             function render() {
                 document.querySelector('#calendar-rendering').innerHTML = renderer.getHtml();

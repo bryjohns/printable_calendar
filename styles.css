@@ -93,7 +93,7 @@ div { box-sizing: border-box; }
     top: 0;
     right: 0;
 }
-.add-control {
+.add-control, .remove-control {
     font-size: 30px;
     font-weight: bold;
     position: absolute;
@@ -102,6 +102,7 @@ div { box-sizing: border-box; }
     height: 30px;
     color: green;
 }
+.remove-control { color: red;}
 ul.activities {
     margin: 20px 0 0 0;
     padding: 0;
